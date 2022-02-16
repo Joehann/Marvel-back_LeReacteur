@@ -8,10 +8,11 @@ Route : /comics | GET
 router.get("/comics", async (req, res) => {
   try {
     const comics = await axios.get(
-      `https://lereacteur-marvel-api.herokuapp.com/comics?apiKey=${process.env.MARVEL_API_KEY}`,
+      `https://lereacteur-marvel-api.herokuapp.com/comics`,
       {
         params: {
-          title: req.query.name, //rendre insensitif à la casse avec une regex ?
+          apiKey: process.env.MARVEL_API_KEY,
+          title: req.query.title, //rendre insensitif à la casse avec une regex ?
           skip: (req.query.page - 1) * 100,
         },
       }
