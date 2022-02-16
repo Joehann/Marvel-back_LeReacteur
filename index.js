@@ -10,7 +10,11 @@ app.use(cors());
 
 /*---ROUTES---*/
 //Add your routes here
+const comicsRoutes = require("./routes/comics");
+app.use(comicsRoutes);
 
+const charactersRoutes = require("./routes/characters");
+app.use(charactersRoutes);
 /*------------*/
 
 app.get("/", async (req, res) => {
