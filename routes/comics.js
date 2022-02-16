@@ -4,6 +4,7 @@ const router = express.Router();
 
 /*
 Route : /comics | GET
+parameters: apiKey, title, skip
 */
 router.get("/comics", async (req, res) => {
   try {
@@ -12,7 +13,7 @@ router.get("/comics", async (req, res) => {
       {
         params: {
           apiKey: process.env.MARVEL_API_KEY,
-          title: req.query.title, //rendre insensitif à la casse avec une regex ?
+          title: req.query.title,
           skip: (req.query.page - 1) * 100,
         },
       }
