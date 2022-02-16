@@ -10,9 +10,16 @@ Route : /characters | GET
 router.get("/characters", async (req, res) => {
   try {
     // console.log("route: /characters");
+    // const nameRegExp = new RegExp(req.query.name, "i");
 
     const characters = await axios.get(
-      `https://lereacteur-marvel-api.herokuapp.com/characters?apiKey=${process.env.MARVEL_API_KEY}`
+      `https://lereacteur-marvel-api.herokuapp.com/characters?apiKey=${process.env.MARVEL_API_KEY}`,
+      {
+        params: {
+          name: req.query.name, //rendre insensitif à la casse avec une regex ?
+          skip: (req.query.page - 1) * 100,
+        },
+      }
     );
 
     res.json(characters.data);
