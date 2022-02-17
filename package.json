@@ -7,11 +7,11 @@
     "express-formidable": "^1.2.0",
     "nodemon": "^2.0.15"
   },
-  "scripts": {
-    "start": "node index.js"
-  },
   "name": "server",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js"
+  }
 }
